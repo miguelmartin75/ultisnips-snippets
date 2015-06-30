@@ -41,11 +41,11 @@ ${VISUAL}${0:${VISUAL/(.*)/(?1::code)/}}
 #endif
 endsnippet
 
-snippet {linc,linclude} "#include local header (linc)" b
+snippet linclude "#include local header (linc)" b
 #include "${1:`!p snip.rv = snip.basename + '.h'`}"
 endsnippet
 
-snippet {include} "#include <> (inc)" b
+snippet include "#include <> (inc)" b
 #include <${1:.h}>
 endsnippet
 
@@ -88,8 +88,13 @@ do
 } while(${1:/* condition */});
 endsnippet
 
+# Variables
 snippet const "constant object" b
 const ${1:T} ${0:name}
+endsnippet
+
+snippet var "variable (var)" b
+${1:T} ${0:${VISUAL}}
 endsnippet
 
 # Conditionals
@@ -165,6 +170,12 @@ struct ${1:`!p snip.rv = (snip.basename or "name")`}
 {
 	${0}
 };
+endsnippet
+
+snippet block "block of code"
+{
+	${0:${VISUAL}}
+}
 endsnippet
 
 #############
